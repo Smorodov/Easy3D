@@ -8,7 +8,7 @@ set(Easy3D_PATCH_VERSION 2)
 set(Easy3D_VERSION ${Easy3D_MAJOR_VERSION}.${Easy3D_MINOR_VERSION}.${Easy3D_PATCH_VERSION})
 
 project(Easy3D VERSION ${Easy3D_VERSION})
-
+set(CMAKE_DEBUG_POSTFIX _d)
 ################################################################################
 
 # specify the C++ standard
@@ -20,16 +20,6 @@ message("-- Setting C++11")
 
 # Offer the user the choice of overriding the installation directories
 # Let's also add the version to the path to allow multiple versions of Easy3D in the same directory.
-
-if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-    if (WIN32 OR MSVC)  # windows
-        set(CMAKE_INSTALL_PREFIX "C:/Program Files/Easy3D/${Easy3D_VERSION}" CACHE PATH "Installation directory" FORCE)
-    elseif (APPLE)      # macOS
-        set(CMAKE_INSTALL_PREFIX "/usr/local/Cellar/easy3d/${Easy3D_VERSION}" CACHE PATH "Installation directory" FORCE)
-    else ()             # Linux: different from tradition, let's keep everything together
-        set(CMAKE_INSTALL_PREFIX "/usr/local/easy3d-${Easy3D_VERSION}" CACHE PATH "Installation directory" FORCE)
-    endif ()
-endif ()
 
 if (APPLE)
     set(CMAKE_OSX_DEPLOYMENT_TARGET "11.0" CACHE STRING "Minimum macOS support" FORCE)

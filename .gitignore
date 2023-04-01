@@ -3,6 +3,7 @@ x64
 *.user
 *.log
 build
+vs2022
 .DS_Store
 resources/images/img.pptx
 .idea
